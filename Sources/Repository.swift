@@ -60,7 +60,7 @@ open class AnyRepository<T> : Repository {
 		self._storeOrUpdate = repository.storeOrUpdate
 	}
 
-	// MARK: Protocol implemntation
+	// MARK: Protocol implementation
 	public func findOne(criteria: [String : Any]?, completion: (Result<T>) -> (Void)) {
 		return self._findOne(criteria, completion)
 	}
