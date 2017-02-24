@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Evocation.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Samples/EvocationSample-iOS/EvocationSample-iOS.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Samples/EvocationSample-watchOS/EvocationSample-watchOS.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Samples/EvocationSample-tvOS/EvocationSample-tvOS.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Samples/EvocationSample-OSX/EvocationSample-OSX.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>
