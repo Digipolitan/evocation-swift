@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 s.name = "Evocation"
 s.version = "1.0.0"
-s.summary = "Evocation framework"
+s.summary = "Evocation is a component which allows you to do remote and local CRUD operations"
 s.homepage = "https://github.com/Digipolitan/evocation-swift"
 s.authors = "Digipolitan"
 s.source = { :git => "https://github.com/Digipolitan/evocation-swift.git", :tag => "v#{s.version}" }

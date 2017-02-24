@@ -8,10 +8,10 @@ Evocation
 [![Twitter](https://img.shields.io/badge/twitter-@Digipolitan-blue.svg?style=flat)](http://twitter.com/Digipolitan)
 
 `Evocation` is a component which allows you to do **remote** and **local** CRUD operations.
-Those CRUD operations must be done through **one single API**. 
+Those CRUD operations must be done through **one single API**.
 
 ### 1 - Concept
-The main goal is to provide CRUD methods for each registered models. 
+The main goal is to provide CRUD methods for each registered models.
 
 ```swift
 	/**
@@ -25,27 +25,27 @@ The main goal is to provide CRUD methods for each registered models.
 	/**
 	Create and persist a collection of T.
 	*/
-	func store<T>(_ models: [T], callback: @escaping (Result<[T]>) -> (Void)) 
+	func store<T>(_ models: [T], callback: @escaping (Result<[T]>) -> (Void))
 	/**
 	Create and persist an instance of a T.
 	*/
-	func storeOne<T>(_ model: T, callback: @escaping (Result<T>) -> (Void)) 
+	func storeOne<T>(_ model: T, callback: @escaping (Result<T>) -> (Void))
 	/**
 	Update an instance of T
 	*/
-	func update<T>(_ models: [T], callback: @escaping (Result<[T]>) -> (Void)) 
+	func update<T>(_ models: [T], callback: @escaping (Result<[T]>) -> (Void))
 	/**
 	Update an instance of T
 	*/
 	func updateOne<T>(_ model: T, callback: (Result<T>) -> (Void))
 	/**
-	Remove items 
+	Remove items
 	*/
 	func remove<T>(_ models: [T], callback: (Result<[T]>) -> (Void))
-	
+
 ```
 
-To achieve this, we are using a Design Pattern (DP) called [Repository](https://msdn.microsoft.com/en-us/library/ff649690.aspx). 
+To achieve this, we are using a Design Pattern (DP) called [Repository](https://msdn.microsoft.com/en-us/library/ff649690.aspx).
 Our `Repository` is a protocol that define the methods to implement for your local and remote datasource.
 
 ```swift
@@ -67,7 +67,7 @@ public protocol Repository {
 	func remove(models: [ModelType], completion: (Result<[ModelType]>) -> (Void))
 	func storeOrUpdate(models: [ModelType], completion: (Result<[ModelType]>) -> (Void))
 }
-``` 
+```
 
 The benefit of the `associatedtype` allows us to directly infer the type to be managed.
 
@@ -84,7 +84,7 @@ open class Result<T> {
 ```
 
 ### 2 - Initialization
-> As a reminder, the purpose of the library is to provide a common interface for data management whether the source is remote (** Webservice **) or local (** Database **).
+> As a reminder, the purpose of the library is to provide a common interface for data management whether the source is remote (**Webservice**) or local (**Database**).
 
 - `Evocation`, the singleton which will be the common interface.
 - `Proxy <T>`, which will maintain the repositories for a given model. This proxy will be subject to management templates that can be configured via `Strategies`
@@ -106,7 +106,7 @@ Below is an explanation of the general operation:
 
 - Defining a `Strategy`
 
-Sometimes you might want to target the webservice and back the results in a local database. 
+Sometimes you might want to target the webservice and back the results in a local database.
 
 Sometimes you might want to target a local database and backup time to time the data through a webservice.
 
@@ -135,8 +135,6 @@ Here the `target` is the first repository that will be targeted. The `fallback` 
 
 You can either configure a strategy with the same rule for all action, of decide to apply specific rule for each action.
 
-
-
 ### 3 - Use case (simple)
 - Configuration
 
@@ -153,14 +151,14 @@ Evocation.shared
 
 ```swift     
 /**
-* Status: Connexion UP 
+* Status: Connexion UP
 */
-Evocation.find(model: Foo.self, criteria: nil) { result in 
+Evocation.find(model: Foo.self, criteria: nil) { result in
     guard result.error == nil else {
         // notify an error has been raised
         return
     }
-    
+
     var foos: [Foo] = result.data
     print(result.origin) // should print "remote" since we have a connexion.
 }
@@ -170,26 +168,21 @@ Evocation.find(model: Foo.self, criteria: nil) { result in
 
 ```swift
 /**
-* Status: Connexion DOWN 
+* Status: Connexion DOWN
 */
-Evocation.find(model: Foo.self, criteria: nil) { result in 
+Evocation.find(model: Foo.self, criteria: nil) { result in
     guard result.error == nil else {
         // notify an error has been raised
         return
     }
-    
+
     var foos: [Foo] = result.data
     print(result.origin) // should print "local" since we don't have a connexion.
 }
 ```
 
-
-
-
 ### 4 - IMPORTANT
 > This tool is at a very early stage. It might have some breaking changes in the futur. To have more information about how the library works, you might want to check the test cases.
- 
-
 
 ## Built With
 
