@@ -92,8 +92,7 @@ open class Result<T> {
 - `Repository <T>`, which is the interface we presented previously.
 
 Below is an explanation of the general operation:
-//TODO: inset schema
-
+![alt text](https://github.com/Digipolitan/evocation-swift/blob/develop/Docs/architecture.png?raw=true "Architecture")
 
 - Registering `local` and `remote` for a model `Foo`.
 
