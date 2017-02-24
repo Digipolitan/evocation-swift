@@ -7,8 +7,7 @@ Evocation
 [![Platform](https://img.shields.io/cocoapods/p/Evocation.svg?style=flat)](http://cocoadocs.org/docsets/Evocation.svg)
 [![Twitter](https://img.shields.io/badge/twitter-@Digipolitan-blue.svg?style=flat)](http://twitter.com/Digipolitan)
 
-> `Evocation` is a component which allows you to do **remote** and **local** CRUD operations.
-
+`Evocation` is a component which allows you to do **remote** and **local** CRUD operations.
 Those CRUD operations must be done through **one single API**. 
 
 ### 1 - Concept
