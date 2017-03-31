@@ -18,7 +18,7 @@ open class Strategy {
 		private(set) var target: Evocation.RepositoryType
 		private(set) var fallback: Evocation.RepositoryType?
 
-		init(target: Evocation.RepositoryType = .remote, fallback: Evocation.RepositoryType? = nil, synchronize: Bool = true) throws {
+		public init(target: Evocation.RepositoryType = .remote, fallback: Evocation.RepositoryType? = nil, synchronize: Bool = true) throws {
 			self.target = target
 			self.fallback = fallback
 			self.synchronize = synchronize
